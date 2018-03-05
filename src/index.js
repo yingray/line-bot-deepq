@@ -71,6 +71,8 @@ app.post('/webhook', async (req, res) => {
   if (!profile) {
     profile = await createUserProfile(userId)
   }
+  console.log(profile)
+  console.log(req.body.events[0])
   users.forEach(user => userId !== user && client.pushMessage(user, message))
   res.send('A_A')
 })
